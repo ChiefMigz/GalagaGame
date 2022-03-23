@@ -6,9 +6,7 @@ Game::Game()
 {
 	mWindow = nullptr;
 	mIsRunning = true;
-	mPaddleDir = 0;
 	mTicksCount = 0;
-	mColor = 1;
 }
 
 bool Game::Initialize()
@@ -19,7 +17,7 @@ bool Game::Initialize()
 		SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
 		return false;
 	}
-	mWindow = SDL_CreateWindow("CMPT-1267", 100, 100, 800, 600, 0);
+	mWindow = SDL_CreateWindow("Galaga Game", 100, 100, 800, 600, 0);
 	if (!mWindow)
 	{
 		SDL_Log("Unable to Create Window: %s", SDL_GetError());
