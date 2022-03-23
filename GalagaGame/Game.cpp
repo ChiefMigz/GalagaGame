@@ -1,10 +1,5 @@
 #include "Game.h"
 #include <iostream>
-const int HEIGHT = 600;
-const int WIDTH = 800;
-const int THICKNESS = 15;
-const int PADDLE_H = 100;
-const float paddleSpeed = 300.0f;
 
 //create constructor
 Game::Game()
@@ -37,13 +32,6 @@ bool Game::Initialize()
 		SDL_Log("Failed to create renderer: %s", SDL_GetError());
 		return false;
 	}
-	mPaddlePos.x = 10.0f;
-	mPaddlePos.y = HEIGHT / 2.0f;
-	mBallPos.x = WIDTH / 2.0f;
-	mBallPos.y = HEIGHT / 2.0f;
-
-	mBallVel.x = -200.0f;
-	mBallVel.y = 235.0f;
 
 	return true;
 }
@@ -103,142 +91,24 @@ void Game::UpdateGame()
 	// Update tick counts (for next frame)
 	mTicksCount = SDL_GetTicks();
 
-	// Update paddle position based on direction
-	if (mPaddleDir != 0)
-	{
-		mPaddlePos.y += mPaddleDir * paddleSpeed * deltaTime;
-		// Make sure paddle doesn't move off screen!
-		if (mPaddlePos.y < (THICKNESS + PADDLE_H / 2.0f))
-			mPaddlePos.y = THICKNESS + PADDLE_H / 2.0f;
-		else if (mPaddlePos.y > (HEIGHT - THICKNESS - PADDLE_H / 2.0f ))
-			mPaddlePos.y = HEIGHT - PADDLE_H / 2.0f - THICKNESS;
-	}
-
-	// Update ball position based on ball velocity
-	mBallPos.x += mBallVel.x * deltaTime;
-	mBallPos.y += mBallVel.y * deltaTime;
-
-	// Bounce if needed
-	// Did we intersect with the paddle?
-	float diff = mPaddlePos.y - mBallPos.y;
-	// Take absolute value of difference
-	diff = (diff > 0.0f) ? diff : -diff;
-	if (
-		// Our y-difference is small enough
-		diff <= PADDLE_H / 2.0f &&
-		// We are in the correct x-position
-		mBallPos.x <= 25.0f && mBallPos.x >= 20.0f &&
-		// The ball is moving to the left
-		mBallVel.x < 0.0f)
-	{
-		mBallVel.x *= -1.0f;
-		changeColor();
-	}
-	// Did the ball go off the screen? (if so, end game)
-	else if (mBallPos.x <= 0.0f)
-	{
-		mIsRunning = false;
-	}
-	// Did the ball collide with the right wall?
-	else if (mBallPos.x >= (WIDTH - THICKNESS) && mBallVel.x > 0.0f)
-	{
-		mBallVel.x *= -1.0f;
-	}
-
-	// Did the ball collide with the top wall?
-	if (mBallPos.y <= THICKNESS && mBallVel.y < 0.0f)
-	{
-		mBallVel.y *= -1;
-	}
-	// Did the ball collide with the bottom wall?
-	else if (mBallPos.y >= (HEIGHT - THICKNESS) &&
-		mBallVel.y > 0.0f)
-	{
-		mBallVel.y *= -1;
-	}
-}
-
-void Game::changeColor()
-{
-	if (mColor != 3)
-		mColor++;
-	else
-		mColor = 1;
-}
-
-void Game::renderColor()
-{
-	if (mColor == 1) // Blue
-	{
-		SDL_SetRenderDrawColor(
-			mRenderer,
-			0,		// R
-			0,		// G 
-			255,	// B
-			255		// A
-		);
-	}
-
-	else if (mColor == 2) //green
-	{
-		SDL_SetRenderDrawColor(
-			mRenderer,
-			0,		// R
-			255,	// G 
-			0,		// B
-			255		// A
-		);
-	}
-	else if (mColor == 3) //purple
-	{
-		SDL_SetRenderDrawColor(
-			mRenderer,
-			255,	// R
-			0,		// G 
-			255,	// B
-			255		// A
-		);
-	}
 }
 
 void Game::GenerateOutput()
 {
-	// Set draw color to blue
-	renderColor();
+	// Set draw color to black
+	SDL_SetRenderDrawColor(
+			mRenderer,
+			255,	// R
+			255,	// G 
+			255,	// B
+			255		// A
+		);
 	
 	// Clear back buffer
 	SDL_RenderClear(mRenderer);
 
 	// Draw walls
 	SDL_SetRenderDrawColor(mRenderer, 255, 0, 0, 255);
-
-	// Draw top wall
-	SDL_Rect wall {
-		0,			// Top left x
-		0,			// Top left y
-		WIDTH,		// Width
-		THICKNESS	// Height
-	};
-	SDL_RenderFillRect(mRenderer, &wall);
-
-	// Draw bottom wall
-	wall.y = HEIGHT - THICKNESS;
-	SDL_RenderFillRect(mRenderer, &wall);
-
-	// Draw right wall
-	wall.x = WIDTH - THICKNESS;
-	wall.y = 0;
-	wall.w = THICKNESS;
-	wall.h = HEIGHT;
-	SDL_RenderFillRect(mRenderer, &wall);
-
-	SDL_Rect ball{ mBallPos.x - THICKNESS / 2, mBallPos.y - THICKNESS / 2, THICKNESS, THICKNESS };
-	SDL_RenderFillRect(mRenderer, &ball);
-
-	SDL_Rect paddle{ mPaddlePos.x - THICKNESS / 2, mPaddlePos.y - PADDLE_H / 2, THICKNESS, PADDLE_H };
-	SDL_RenderFillRect(mRenderer, &paddle);
-
-	
 
 	// Swap front buffer and back buffer
 	SDL_RenderPresent(mRenderer);
