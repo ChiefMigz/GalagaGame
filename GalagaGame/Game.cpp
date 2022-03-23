@@ -62,16 +62,6 @@ void Game::ProcessInput()
 			break;
 		}
 	}
-	const Uint8* state = SDL_GetKeyboardState(NULL);
-
-	mPaddleDir = 0;
-
-	if (state[SDL_SCANCODE_ESCAPE])
-		mIsRunning = false;
-	else if (state[SDL_SCANCODE_W])
-		mPaddleDir -= 1;
-	else if (state[SDL_SCANCODE_S])
-		mPaddleDir += 1;
 }
 
 void Game::UpdateGame()
@@ -122,4 +112,3 @@ void Game::ShutDown()
 	mRenderer = nullptr;
 	SDL_Quit();
 }
-
