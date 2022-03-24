@@ -1,5 +1,5 @@
-#include "Game.h"
 #include <iostream>
+#include "Game.h"
 
 //create constructor
 Game::Game()
