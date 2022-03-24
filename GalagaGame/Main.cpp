@@ -1,8 +1,6 @@
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_ttf.h"
 #include <iostream>
 #include <string>
+#include "Game.h"
 using namespace std;
 
 const int SCREEN_WIDTH = 640;
@@ -14,7 +12,7 @@ int main(int argc, char* args[])
 	Game game;
 	bool loadFlagSuccessful = game.Initialize();
 	if (loadFlagSuccessful)
-		game.runLoop();
+		game.RunLoop();
 	game.ShutDown();
 	return 0;
 }
