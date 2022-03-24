@@ -95,8 +95,7 @@ void Game::GenerateOutput()
 	// Clear back buffer
 	SDL_RenderClear(mRenderer);
 
-	// Draw walls
-	SDL_SetRenderDrawColor(mRenderer, 255, 0, 0, 255);
+	
 
 	// Swap front buffer and back buffer
 	SDL_RenderPresent(mRenderer);
