@@ -89,7 +89,7 @@ void Game::GenerateOutput()
 			255,	// R
 			255,	// G 
 			255,	// B
-			255		// A
+			255	// A
 		);
 	
 	// Clear back buffer
