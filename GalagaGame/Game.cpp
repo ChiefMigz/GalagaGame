@@ -1,5 +1,5 @@
-#include "Game.h"
 #include <iostream>
+#include "Game.h"
 
 //create constructor
 Game::Game()
@@ -89,14 +89,11 @@ void Game::GenerateOutput()
 			255,	// R
 			255,	// G 
 			255,	// B
-			255		// A
+			255	// A
 		);
 	
 	// Clear back buffer
 	SDL_RenderClear(mRenderer);
-
-	// Draw walls
-	SDL_SetRenderDrawColor(mRenderer, 255, 0, 0, 255);
 
 	// Swap front buffer and back buffer
 	SDL_RenderPresent(mRenderer);
