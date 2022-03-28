@@ -95,8 +95,6 @@ void Game::GenerateOutput()
 	// Clear back buffer
 	SDL_RenderClear(mRenderer);
 
-	
-
 	// Swap front buffer and back buffer
 	SDL_RenderPresent(mRenderer);
 }

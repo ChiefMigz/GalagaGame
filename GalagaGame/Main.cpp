@@ -6,9 +6,11 @@ using namespace std;
 int main(int argc, char* args[])
 {
 	Game game;
-	bool loadFlagSuccessful = game.Initialize();
-	if (loadFlagSuccessful)
+	bool success = game.Initialize();
+	if (success)
+	{
 		game.RunLoop();
+	}
 	game.ShutDown();
 	return 0;
 }
