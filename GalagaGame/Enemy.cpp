@@ -13,4 +13,5 @@ void Enemy::UpdateEntity(float deltaTime)
 	GameEntity::UpdateEntity(deltaTime);
 	Vector2 pos = GetPosition();
 	pos.x += mRightSpeed * deltaTime;
+	pos.y += mDownSpeed* deltaTime;
 }
