@@ -1,9 +1,14 @@
-#include <iostream>
-#include <string>
-#include "Game.h"
-using namespace std;
+// ----------------------------------------------------------------
+// From Game Programming in C++ by Sanjay Madhav
+// Copyright (C) 2017 Sanjay Madhav. All rights reserved.
+// 
+// Released under the BSD License
+// See LICENSE in root directory for full details.
+// ----------------------------------------------------------------
 
-int main(int argc, char* args[])
+#include "Game.h"
+
+int main(int argc, char** argv)
 {
 	Game game;
 	bool success = game.Initialize();
@@ -11,6 +16,6 @@ int main(int argc, char* args[])
 	{
 		game.RunLoop();
 	}
-	game.ShutDown();
+	game.Shutdown();
 	return 0;
 }

@@ -1,17 +1,11 @@
-﻿  Game.cpp
+﻿  Enemy.cpp
+C:\Users\peben\Desktop\GalagaGame\GalagaGame\Enemy.cpp(5,3): error C2614: 'Enemy': illegal member initialization: 'GameEntity' is not a base or member
+C:\Users\peben\Desktop\GalagaGame\GalagaGame\Enemy.cpp(6,3): error C2614: 'Enemy': illegal member initialization: 'mRightSpeed' is not a base or member
+C:\Users\peben\Desktop\GalagaGame\GalagaGame\Enemy.cpp(7,3): error C2614: 'Enemy': illegal member initialization: 'mDownSpeed' is not a base or member
+C:\Users\peben\Desktop\GalagaGame\GalagaGame\Enemy.cpp(13,2): error C2653: 'GameEntity': is not a class or namespace name
+C:\Users\peben\Desktop\GalagaGame\GalagaGame\Enemy.cpp(14,16): error C3861: 'GetPosition': identifier not found
+C:\Users\peben\Desktop\GalagaGame\GalagaGame\Enemy.cpp(15,11): error C2065: 'mRightSpeed': undeclared identifier
+C:\Users\peben\Desktop\GalagaGame\GalagaGame\Enemy.cpp(16,11): error C2065: 'mDownSpeed': undeclared identifier
+  Game.cpp
   Main.cpp
   Generating Code...
-  Game.vcxproj -> C:\Users\peben\Desktop\GalagaGame\GalagaGame\Debug\Game.exe
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\libfreetype-6.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\libogg-0.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\libpng16-16.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\libvorbis-0.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\libvorbisfile-3.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\SDL2.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\SDL2_image.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\SDL2_mixer.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\SDL2_ttf.dll
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\SDL\lib\win\x86\zlib1.dll
-  10 File(s) copied
-  C:\Users\peben\Desktop\GalagaGame\GalagaGame\\..\external\GLEW\lib\win\x86\glew32.dll
-  1 File(s) copied
