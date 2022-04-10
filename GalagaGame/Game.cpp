@@ -157,7 +157,7 @@ void Game::LoadData()
 {
 	// Create player's ship
 	mShip = new Ship(this);
-	mShip->SetPosition(Vector2(100.0f, 384.0f));
+	mShip->SetPosition(Vector2(100.0f, 650.0f));
 	mShip->SetScale(1.5f);
 	mEnemy = new Enemy(this);
 	mEnemy->SetPosition(Vector2(885.0f, 384.0f));
@@ -196,9 +196,9 @@ void Game::UnloadData()
 	}
 
 	// Destroy textures
-	for (auto i : mTextures)
+	for (auto &texture : mTextures)
 	{
-		SDL_DestroyTexture(i.second);
+		SDL_DestroyTexture(texture.second);
 	}
 	mTextures.clear();
 }
