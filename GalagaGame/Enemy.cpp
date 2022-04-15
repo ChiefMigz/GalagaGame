@@ -45,28 +45,5 @@ void Enemy::UpdateActor(float deltaTime)
 	SetPosition(pos);
 }
 
-void Enemy::ProcessKeyboard(const uint8_t* state)
-{
-	mRightSpeed = 0.0f;
-	mDownSpeed = 0.0f;
-	// right/left
-	if (state[SDL_SCANCODE_L])
-	{
-		mRightSpeed += 250.0f;
-	}
-	if (state[SDL_SCANCODE_J])
-	{
-		mRightSpeed -= 250.0f;
-	}
-	// up/down
-	if (state[SDL_SCANCODE_K])
-	{
-		mDownSpeed += 300.0f;
-	}
-	if (state[SDL_SCANCODE_I])
-	{
-		mDownSpeed -= 300.0f;
-	}
-}
 
 
