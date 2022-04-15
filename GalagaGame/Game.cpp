@@ -90,7 +90,6 @@ void Game::ProcessInput()
 
 	// Process ship input
 	mShip->ProcessKeyboard(state);
-	mEnemy->ProcessKeyboard(state);
 }
 
 void Game::UpdateGame()
@@ -156,12 +155,19 @@ void Game::GenerateOutput()
 void Game::LoadData()
 {
 	// Create player's ship
+	
+	for (int i = 1; i < 6; i++)
+	{
+		for (int j = 1; j < 6; j++)
+		{
+			mEnemies.push_back(new Enemy(this));
+			mEnemies.back()->SetPosition(Vector2(75.0f + 150.0f * j, 50.0f + 75 * i));
+			mEnemies.back()->SetScale(0.75f);
+		}
+	}
 	mShip = new Ship(this);
 	mShip->SetPosition(Vector2(100.0f, 650.0f));
 	mShip->SetScale(1.5f);
-	mEnemy = new Enemy(this);
-	mEnemy->SetPosition(Vector2(885.0f, 384.0f));
-	mEnemy->SetScale(1.0f);
 
 	// Create actor for the background (this doesn't need a subclass)
 	Actor* temp = new Actor(this);

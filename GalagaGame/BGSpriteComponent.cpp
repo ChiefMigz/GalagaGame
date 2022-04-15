@@ -26,7 +26,7 @@ void BGSpriteComponent::Update(float deltaTime)
 		// the right of the last bg texture
 		if (bg.mOffset.y > mScreenSize.y)
 		{
-			bg.mOffset.y = (mBGTextures.size() - 1) * -mScreenSize.y + 1;
+			bg.mOffset.y = (mBGTextures.size() - 1) * -mScreenSize.y + 1.5;
 		}
 	}
 }

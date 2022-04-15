@@ -54,5 +54,5 @@ private:
 
 	// Game-specific
 	class Ship* mShip; // Player's ship
-	class Enemy* mEnemy; // Enemy's ship
+	std::vector<class Enemy*> mEnemies;
 };

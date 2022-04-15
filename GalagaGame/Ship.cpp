@@ -23,7 +23,7 @@ Ship::Ship(Game* game)
 		game->GetTexture("Assets/Ship03.png"),
 		game->GetTexture("Assets/Ship04.png"),
 	};
-	asc->SetAnimTextures(anims);
+	asc->SetAnimTextures(anims); 
 }
 
 void Ship::UpdateActor(float deltaTime)
@@ -58,21 +58,12 @@ void Ship::ProcessKeyboard(const uint8_t* state)
 	mRightSpeed = 0.0f;
 	mDownSpeed = 0.0f;
 	// right/left
-	if (state[SDL_SCANCODE_D])
+	if (state[SDL_SCANCODE_D] || state[SDL_SCANCODE_RIGHT])
 	{
 		mRightSpeed += 250.0f;
 	}
-	if (state[SDL_SCANCODE_A])
+	if (state[SDL_SCANCODE_A] || state[SDL_SCANCODE_LEFT])
 	{
 		mRightSpeed -= 250.0f;
-	}
-	// up/down
-	if (state[SDL_SCANCODE_S])
-	{
-		mDownSpeed += 300.0f;
-	}
-	if (state[SDL_SCANCODE_W])
-	{
-		mDownSpeed -= 300.0f;
 	}
 }
