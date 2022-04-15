@@ -4,5 +4,5 @@
 *.so
 *.dylib
 *obj
-.pdb
-.idb
+*.pdb
+*.idb
