@@ -27,6 +27,12 @@ public:
 	void RemoveSprite(class SpriteComponent* sprite);
 	
 	SDL_Texture* GetTexture(const std::string& fileName);
+
+	const int getScreenWidth() { return SCREEN_WIDTH;}
+	const int getScreenHeight() { return SCREEN_HEIGHT;}
+	const float getOffset() { return mOffset; }
+
+	
 private:
 	void ProcessInput();
 	void UpdateGame();
@@ -55,4 +61,9 @@ private:
 	// Game-specific
 	class Ship* mShip; // Player's ship
 	std::vector<class Enemy*> mEnemies;
+
+	const int SCREEN_WIDTH = 682;
+	const int SCREEN_HEIGHT = 768;
+	const float mOffset = 25.0f;
+	
 };

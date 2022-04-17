@@ -9,7 +9,7 @@ public:
 	void ProcessKeyboard(const uint8_t* state) = delete;
 	float GetRightSpeed() const { return mRightSpeed; }
 	float GetDownSpeed() const { return mDownSpeed; }
-	static void createPaths();
+	//static void createPaths();
 private:
 	float mRightSpeed;
 	float mDownSpeed;

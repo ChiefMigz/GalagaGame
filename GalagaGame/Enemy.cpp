@@ -26,38 +26,22 @@ void Enemy::UpdateActor(float deltaTime)
 	Vector2 pos = GetPosition();
 	pos.x += mRightSpeed * deltaTime;
 	pos.y += mDownSpeed * deltaTime;
-	// Restrict position to left half of screen
-	if (pos.x < 25.0f)
-	{
-		pos.x = 25.0f;
-	}
-	else if (pos.x > 985.0f)
-	{
-		pos.x = 985.0f;
-	}
-	if (pos.y < 25.0f)
-	{
-		pos.y = 25.0f;
-	}
-	else if (pos.y > 743.0f)
-	{
-		pos.y = 743.0f;
-	}
+
 	SetPosition(pos);
 }
 
-void Enemy::createPaths()
-{
-	int currentPath = 0;
-	BezierPath* path = new BezierPath();
-	path->addCurve({ Vector2(500.0f, 10.0f), Vector2(500.0f, 0.0f), Vector2(500.0f, 300.0f) }, 1);
-
-
-	sPaths.push_back(std::vector<Vector2>());
-	path->sample(&sPaths[currentPath]);
-	delete path;
-
-}
+//void Enemy::createPaths()
+//{
+//	int currentPath = 0;
+//	BezierPath* path = new BezierPath();
+//	path->addCurve({ Vector2(500.0f, 10.0f), Vector2(500.0f, 0.0f), Vector2(500.0f, 300.0f) }, 1);
+//
+//
+//	sPaths.push_back(std::vector<Vector2>());
+//	path->sample(&sPaths[currentPath]);
+//	delete path;
+//
+//}
 
 
 

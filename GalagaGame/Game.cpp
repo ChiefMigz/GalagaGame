@@ -20,6 +20,8 @@ Game::Game()
 ,mRenderer(nullptr)
 ,mIsRunning(true)
 ,mUpdatingActors(false)
+,mShip(nullptr)
+,mTicksCount(0)
 {
 	
 }
@@ -32,7 +34,7 @@ bool Game::Initialize()
 		return false;
 	}
 	
-	mWindow = SDL_CreateWindow("Galaga Game", 100, 100, 1024, 768, 0);
+	mWindow = SDL_CreateWindow("Galaga Game", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 	if (!mWindow)
 	{
 		SDL_Log("Failed to create window: %s", SDL_GetError());
@@ -154,9 +156,9 @@ void Game::GenerateOutput()
 
 void Game::LoadData()
 {
-	// Create player's ship
+	// Create enemies
 	
-	for (int i = 1; i < 6; i++)
+	/*for (int i = 1; i < 6; i++)
 	{
 		for (int j = 1; j < 6; j++)
 		{
@@ -164,9 +166,9 @@ void Game::LoadData()
 			mEnemies.back()->SetPosition(Vector2(75.0f + 150.0f * j, 50.0f + 75 * i));
 			mEnemies.back()->SetScale(0.75f);
 		}
-	}
+	}*/
 	mShip = new Ship(this);
-	mShip->SetPosition(Vector2(100.0f, 650.0f));
+	mShip->SetPosition(Vector2(341.0f, SCREEN_HEIGHT - mOffset - 25.0f));
 	mShip->SetScale(1.5f);
 
 	// Create actor for the background (this doesn't need a subclass)

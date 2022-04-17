@@ -34,21 +34,13 @@ void Ship::UpdateActor(float deltaTime)
 	pos.x += mRightSpeed * deltaTime;
 	pos.y += mDownSpeed * deltaTime;
 	// Restrict position to left half of screen
-	if (pos.x < 25.0f)
+	if (pos.x < mGame->getOffset())
 	{
-		pos.x = 25.0f;
+		pos.x = mGame->getOffset();
 	}
-	else if (pos.x > 985.0f)
+	else if (pos.x > mGame->getScreenWidth() - mGame->getOffset())
 	{
-		pos.x = 985.0f;
-	}
-	if (pos.y < 25.0f)
-	{
-		pos.y = 25.0f;
-	}
-	else if (pos.y > 743.0f)
-	{
-		pos.y = 743.0f;
+		pos.x = mGame->getScreenWidth() - mGame->getOffset();
 	}
 	SetPosition(pos);
 }
