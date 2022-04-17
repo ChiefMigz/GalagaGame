@@ -244,7 +244,11 @@ public:
 	static const Vector2 UnitY;
 	static const Vector2 NegUnitX;
 	static const Vector2 NegUnitY;
+
+	
 };
+
+
 
 // 3D Vector
 class Vector3
@@ -1031,3 +1035,27 @@ namespace Color
 	static const Vector3 LightPink(1.0f, 0.71f, 0.76f);
 	static const Vector3 LightGreen(0.56f, 0.93f, 0.56f);
 }
+
+struct BezierCurve
+{
+	Vector2 p0; //start point
+	Vector2 p1; //control for start point
+	Vector2 p2; //control for end point
+	Vector2 p3; //end point
+
+	Vector2 calculateCurvePoint(float t)
+	{
+		float tt = t * t;
+		float ttt = tt * t;
+		float u = 1.0f - t;
+		float uu = u * u;
+		float uuu = uu * u;
+
+		Vector2 point = (uuu * p0) + (3 * uu * t * p1) + (3 * u * tt * p2) + (ttt * p3);
+		point.x = round(point.x);
+		point.y = round(point.y);
+		
+		return point;
+	}
+
+};

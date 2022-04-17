@@ -16,6 +16,7 @@ Enemy::Enemy(Game* game)
 		game->GetTexture("Assets/Enemy04.png"),
 	};
 	asc->SetAnimTextures(anims);
+	//mCurrentPath = path;
 }
 
 void Enemy::UpdateActor(float deltaTime)
@@ -43,6 +44,19 @@ void Enemy::UpdateActor(float deltaTime)
 		pos.y = 743.0f;
 	}
 	SetPosition(pos);
+}
+
+void Enemy::createPaths()
+{
+	int currentPath = 0;
+	BezierPath* path = new BezierPath();
+	path->addCurve({ Vector2(500.0f, 10.0f), Vector2(500.0f, 0.0f), Vector2(500.0f, 300.0f) }, 1);
+
+
+	sPaths.push_back(std::vector<Vector2>());
+	path->sample(&sPaths[currentPath]);
+	delete path;
+
 }
 
 

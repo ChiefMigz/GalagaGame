@@ -15,4 +15,3 @@ private:
 	std::vector<BezierCurve> mCurves;
 	std::vector<int> mSamples;
 };
-
